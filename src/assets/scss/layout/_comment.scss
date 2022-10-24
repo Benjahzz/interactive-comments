@@ -1,0 +1,155 @@
+.container-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.comment {
+  background-color: white;
+  min-height: 20rem;
+  border-radius: 1rem;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2rem;
+  padding: 3rem;
+  font-family: $fuentePrincipal;
+  width: 100%;
+  position: relative;
+  @include tablet {
+    flex-direction: row;
+  }
+  &__rating {
+    background-color: $colorGrisLight;
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 9rem;
+    padding: 0 1rem;
+    height: 4rem;
+    order: 2;
+    @include tablet {
+      order: initial;
+      height: 100%;
+      min-height: 0;
+      flex-direction: column;
+      width: initial;
+      height: 50%;
+      min-height: 10rem;
+    }
+    &__up,
+    &__down {
+      font-size: 1.8remrem;
+      color: rgb(182, 182, 182);
+      cursor: pointer;
+
+      &:hover {
+        color: $colorAzul;
+      }
+    }
+    .rating--active {
+      color: $colorAzul;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    width: 100%;
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &__user {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        .user__image {
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          background-color: $colorGrisLight;
+        }
+        .user__name {
+          font-size: 1.8remrem;
+          font-weight: 600;
+        }
+        .user__date {
+          color: gray;
+        }
+      }
+      &__actions {
+        cursor: pointer;
+        color: $colorAzul;
+        display: flex;
+        gap: 2rem;
+        position: absolute;
+        bottom: 3.6rem;
+        right: 2rem;
+        @include tablet {
+          position: initial;
+        }
+      }
+    }
+    .comment__body {
+      color: gray;
+      font-weight: lighter;
+    }
+  }
+}
+
+.user__name--admin {
+  color: $colorAzul;
+  display: flex;
+  gap: 1rem;
+}
+.user-admin__tooltip {
+  background-color: $colorAzul;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.4rem;
+  width: 6rem;
+}
+.action {
+  font-family: $fuentePrincipal;
+}
+.action-eliminar {
+  color: red;
+}
+.replies-list {
+  display: flex;
+  .replies__line {
+    display: flex;
+    margin-right: 2rem;
+    .line {
+      width: 0.2rem;
+      background-color: rgba(199, 199, 199, 0.596);
+      transition: height 1s ease-in;
+    }
+    @include tablet {
+      flex: 1;
+      justify-content: center;
+      margin-right: 0;
+    }
+  }
+
+  .container-replies {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 5;
+    width: 100%;
+    .reply {
+      flex: 2;
+    }
+  }
+}
